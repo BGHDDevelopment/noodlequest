@@ -1,0 +1,89 @@
+
+    // *********** WELCOME TO THE GLOBALORIA SANDBOX **********
+
+
+function setupLevel() {
+
+  GOAL_REACHED_TEXT = "\n\nThank you for playing Noodle Quest!";
+  CURRENT_LEVEL_TEXT = "Level-1";
+  STORY_TEXT = [
+"\nFind your way to the exit to find the Noodles!"];
+  FACE_RIGHT = 0;
+  FACE_LEFT = 180;
+  FACE_DOWN = 90;
+  FACE_UP = 270;
+  PLAYER_START_X = 20;
+  PLAYER_START_Y = 100;
+  playerImage = loadImage("images/MakeQuestAssets/Characters60PX/PolarBear_F_60.png");
+  player.addImage(playerImage);
+  platformHeight = 10;
+  platform1 = createPlatform(30, 400, 80, platformHeight, 'yellow');
+  platform2 = createPlatform(180, 320, 80, platformHeight, 'blue');
+  platform3 = createPlatform(150, 460, 130, platformHeight, 'brown');
+  platform4 = createPlatform(350, 460, 20, platformHeight, 'magenta');
+  platform8 = createPlatform(350, 260, 80, platformHeight, 'orange');
+  platform9 = createPlatform(500, 300, 300, platformHeight, 'red');
+  platform1.setSpeed( 2, FACE_DOWN );
+  platform2.setSpeed( 0.5, FACE_RIGHT );
+  platform3.setSpeed( 0.5, FACE_RIGHT );
+  platform4.setSpeed( 0.5, FACE_RIGHT );
+  platform8.setSpeed( 1.0, FACE_RIGHT );
+  platform9.setSpeed( 2.0, FACE_DOWN );
+  goal.position.x = 600;
+  goal.position.y = 50;
+  goalImage = loadImage("images/MakeQuestAssets/Portal_60.png");
+  goal.addImage(goalImage);
+  backgroundImage = loadImage("images/MakeQuestAssets/Background_4.png");
+  
+  
+}
+
+function drawLevel() {
+  if (isPlayerOnPlatform()) {
+    makePlayerJump(10);
+  }
+
+  if( platform1.position.y > 420 ){
+    platform1.setSpeed( 2, FACE_UP );
+  }
+  if( platform1.position.y < 200 ){
+    platform1.setSpeed( 5, FACE_DOWN );
+  }
+
+
+  if( platform2.position.x > 230 ){
+    platform2.setSpeed( 0.5, FACE_LEFT );
+  }
+  if( platform2.position.x < 130 ){
+    platform2.setSpeed( 0.5, FACE_RIGHT );
+  }
+  if( platform3.position.x > 200 ){
+    platform3.setSpeed( 5.0, FACE_LEFT );
+  }
+  if( platform3.position.x < 100 ){
+    platform3.setSpeed( 5.0, FACE_RIGHT );
+  }
+  if( platform4.position.x > 400 ){
+    platform4.setSpeed( 0.5, FACE_LEFT );
+  }
+  if( platform4.position.x < 300 ){
+    platform4.setSpeed( 0.5, FACE_RIGHT );
+  }
+  
+    if( platform8.position.x > 400 ){
+    platform8.setSpeed( 1.0, FACE_LEFT );
+  }
+  if( platform8.position.x < 300 ){
+    platform8.setSpeed( 1.0, FACE_RIGHT );
+  }
+  
+ if( platform9.position.y > 500 ){
+    platform9.setSpeed( 2, FACE_UP );
+  }
+  if( platform9.position.y < 250 ){
+
+    platform9.setSpeed( 5, FACE_DOWN );
+  }
+
+}
+    
